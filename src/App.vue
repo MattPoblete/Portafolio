@@ -2,12 +2,24 @@
   <div id="app">
         
     <router-view/>
+
   </div>
 </template>
 <script>
 
+
+
 export default {
-  
+  created(){
+
+  },
+  methods:{
+
+
+  },
+   mounted(){
+ 
+  },
 }
 </script>
 <style>
@@ -46,25 +58,28 @@ export default {
 }
 * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(187, 187, 187, 0) rgba(255, 255, 255, 0);
+    scrollbar-color: rgb(255, 0, 0) rgba(255, 255, 255, 0);
 }
   
   /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 0px;
+  width: 8px;
   
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0);
+  background: rgba(255, 0, 0, 0);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(187, 187, 187, 0);
+  background-color: rgba(187, 187, 187, 0.507);
   border-radius: 20px;
-  border: 3px solid rgba(255, 166, 0, 0);
+  height: 8px;
+  width: 8px;
+
 }
 body{
-  overflow-x : hidden;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 </style>

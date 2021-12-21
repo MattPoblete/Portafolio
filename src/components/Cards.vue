@@ -4,10 +4,24 @@
             <div class="tarjeta-button-set " v-bind:class="{hidden_bar : !IsActive}">
                 <div id="cerrar" class="rojo tarjeta-btn"></div>
                 <div id="ocultar" class="amarillo tarjeta-btn" @click="toggle"></div>
-                <a id="mostrar" class="verde tarjeta-btn" href="https://github.com/MattPoblete" target="_blank"></a>
+                <a id="mostrar" class="verde tarjeta-btn" :href="proyecto.data.url" target="_blank"></a>
             </div>
             <div class="tarjeta-body" v-bind:class="{active : IsActive}">
-                <img src="../assets/suricata.png" class="tarjeta-img" alt="...">
+                <b-carousel
+                    id="carousel-fade"
+                    fade
+                    :controls = "true"
+                    :interval = "2000"
+                >
+                    <a :href="proyecto.data.url" target="_blank" >
+                    <b-carousel-slide
+                    v-for="(imagen) in proyecto.data.imagenes"
+                    img-width="100%"
+                    :key="imagen"
+                    :img-src="imagen"
+                    ></b-carousel-slide>
+                    </a>
+                </b-carousel>
             </div>
           </div>
     </div>
@@ -17,30 +31,30 @@
 export default {
     data(){
         return{
-            IsActive:false,
+            IsActive:true,
         }
     },
-    computed:{
-
-    },
+    props:['proyecto'],
     methods:{
         toggle(){
             this.IsActive = !this.IsActive
-        }
-    }
+        },
+    },
+
 }
 </script>
 
 <style scoped>
 .tarjeta{
     border-radius: 10px;
-    max-width: 40vw;
+    width: 70vw;
     display: inline-block;
     transition: .25s;
     transform: translateY(0);
     opacity: 1;
     box-sizing: border-box;
 }
+
 .tarjeta-img{
     width: 100%;
     height: 100%;
@@ -137,7 +151,8 @@ export default {
     border-radius: 10px 10px 10px 10px;
 }
 .visible:hover{
-    transform: scale(1.2);
-    margin: 0 2rem
+    transform: scale(1.1);
+    margin: 0px 2rem;
 }
+
 </style>
