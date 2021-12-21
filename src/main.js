@@ -37,7 +37,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 new Vue({
   router,
